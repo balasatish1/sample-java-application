@@ -14,7 +14,7 @@ export default function LandingPage() {
           <h1>Uniting travelers through simple, shared journeys.
             Your journey begins with just one connection</h1>
           <button
-            className='get-started'
+            className='get-started-btn'
           // onClick={() => navigate('/home')}
           >
             Get started
