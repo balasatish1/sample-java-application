@@ -1,10 +1,16 @@
 import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import LandingPage from './pages/LandingPage'
 
 function App() {
 
   return (
     <>
-      <h1>Java Application</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<LandingPage/>}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
