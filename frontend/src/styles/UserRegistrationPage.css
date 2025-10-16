@@ -39,7 +39,7 @@
   margin-right: 10px;
 }
 
-.user-type-input-box {
+.user-role-input-box, .vehicle-type-input-box {
   margin-top: 10px;
   margin-bottom: 20px;
 }

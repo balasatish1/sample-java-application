@@ -1,8 +1,13 @@
 
 import Header from '../components/Header.jsx';
 import '../styles/UserRegistrationPage.css';
+import { useReducer, useState } from 'react';
 
 export default function UserRegistrationPage() {
+
+
+  const [userRole, setUserRole] = useState('');
+  const [vechileType, setVechileType] = useState('');
 
   return (
 
@@ -27,28 +32,87 @@ export default function UserRegistrationPage() {
             type="number"
           />
 
-         <div className='user-type-input-box'>
-           <label>User type :</label>
-          <input type="radio" name='user-type' value="driver" /><label>Driver</label>
-          <input type="radio" name='user-type' value="passanger" /><label>Passanger</label>
+          <div className='user-role-input-box'>
+            <label>User Role :</label>
+            <input
+              type="radio"
+              name='user-role'
+              value="driver"
+              checked={userRole === 'driver'}
+              onClick={(e) => setUserRole(e.target.value)}
+            />
+            <label>Driver</label>
+            <input
+              type="radio"
+              name='user-role'
+              value="passanger"
+              checked={userRole === 'passanger'}
+              onClick={(e) => setUserRole(e.target.value)}
 
-         </div>
+            />
+            <label>Passanger</label>
 
-          <label >Username</label>
-          <input
-            type="text"
-          />
+          </div>
 
+          {
+            userRole === 'driver' && (
+              <>
 
-          <label >Username</label>
-          <input
-            type="text"
-          />
+                <div className='vehicle-type-input-box'>
+                  <label>Vehicle Type :</label>
+                  <input
+                    type="radio"
+                    name='vehicle-type'
+                    value="car"
+                    checked={vechileType === 'car'}
+                    onClick={(e) => setVechileType(e.target.value)}
+                  />
+                  <label>Car</label>
+                  <input
+                    type="radio"
+                    name='vehicle-type'
+                    value="bike"
+                    checked={vechileType === 'bike'}
+                    onClick={(e) => setVechileType(e.target.value)}
 
-          <label>Password</label>
-          <input
-            type="password"
-          />
+                  />
+                  <label>Bike</label>
+
+                  <input
+                    type="radio"
+                    name='vehicle-type'
+                    value="auto"
+                    checked={vechileType === 'auto'}
+                    onClick={(e) => setVechileType(e.target.value)}
+
+                  />
+                  <label>Auto</label>
+
+                </div>
+                <label >Vehicle Number</label>
+                <input
+                  type="text"
+                />
+
+                <label >Driver's License Number</label>
+                <input
+                  type="text"
+                />
+              </>
+            )
+          }
+
+          {
+            userRole === 'passanger' && (
+              <>
+                <label >Adhaar Number</label>
+                <input
+                  type="text"
+                />
+              </>
+            )
+          }
+
         </form>
       </div>
     </>
